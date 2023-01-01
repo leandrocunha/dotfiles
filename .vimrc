@@ -35,7 +35,11 @@ let g:airline_powerline_fonts = 1
 
 
 " NERDTree
+"" Remap NERDTree to toggle with ctrl + b, like VSCode
 nnoremap <C-b> :NERDTreeToggle<CR>
+
+"" Closes NERDTree when open a file
+let NERDTreeQuitOnOpen = 1
 
 
 " Coc.Settings
