@@ -9,7 +9,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ryanoasis/vim-devicons'
 Plug 'posva/vim-vue'
-Plug 'neoclide/coc-vetur'
+Plug oclide/coc-vetur'
 call plug#end()
 
 
@@ -49,3 +49,11 @@ let g:coc_global_extensions = ['coc-eslint', 'coc-prettier', 'coc-tsserver']
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+
+" Key remaps
+"" Move lines up/down like in VSCode
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
