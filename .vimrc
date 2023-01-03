@@ -11,6 +11,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'posva/vim-vue'
 Plug 'neoclide/coc-vetur'
 Plug 'APZelos/blamer.nvim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
@@ -26,6 +27,7 @@ set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
+set list lcs=tab:\|\
 
 if exists('+termguicolors')
   set termguicolors
@@ -64,6 +66,10 @@ inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 "" Enable Blamer on vim startup
 let g:blamer_enabled = 1
 
+
+" IdentLine
+"" Set the characters to represent vertical identation line
+let g:indentLine_char_list = ['┆', '┆', '┆', '┆']
 
 " Key remaps
 "" Move lines up/down like in VSCode
