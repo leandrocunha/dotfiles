@@ -9,7 +9,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ryanoasis/vim-devicons'
 Plug 'posva/vim-vue'
-Plug oclide/coc-vetur'
+Plug 'neoclide/coc-vetur'
 call plug#end()
 
 
