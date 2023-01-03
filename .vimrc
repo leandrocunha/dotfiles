@@ -10,6 +10,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ryanoasis/vim-devicons'
 Plug 'posva/vim-vue'
 Plug 'neoclide/coc-vetur'
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 
@@ -57,6 +58,11 @@ let g:coc_global_extensions = ['coc-eslint', 'coc-prettier', 'coc-tsserver']
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+
+" Blamer
+"" Enable Blamer on vim startup
+let g:blamer_enabled = 1
 
 
 " Key remaps
