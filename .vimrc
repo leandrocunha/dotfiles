@@ -12,22 +12,48 @@ Plug 'posva/vim-vue'
 Plug 'neoclide/coc-vetur'
 Plug 'APZelos/blamer.nvim'
 Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 
 " Default Settings
 colorscheme dracula
 
+"" Required by vim-polyglot
+set nocompatible
+
+"" Enable line numbers
 set number
+
+"" Enable encoding to show font icons
 set encoding=UTF-8
+
+"" Set the font family
 set guifont=FiraCode_Nerd_Font:h11
-set backspace=2
+
+"" When press tab, add 4 spaces
 set expandtab
+
+"" Insert tabs on stat of a line according to the shiftwidth
 set smarttab
+
+"" When ident with '>', use 2 spaces width
 set shiftwidth=2
+
+"" Show existing tabs with 2 spaces
 set softtabstop=2
 set tabstop=2
+
+"" Change default character of indentLine plugin
 set list lcs=tab:\|\
+
+"" Show a line at columnWidth value to keep you aware of line size
+set colorcolumn=100
+
+"" Add a column to the left side, usefull for linters
+set signcolumn=yes
+
 
 if exists('+termguicolors')
   set termguicolors
