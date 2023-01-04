@@ -1,9 +1,4 @@
 {
   "snippets.ultisnips.pythonPrompt": false,
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"],
-  "eslint.autoFixOnSave": true,
-  "prettier.singleQuote": false,
-  "prettier.tabWidth": 2,
-  "prettier.printWidth": 80,
-  "prettier.trailingComma": "es5"
+  "coc.preferences.formatOnSave": true
 }
