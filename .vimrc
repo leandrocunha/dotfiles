@@ -12,16 +12,12 @@ Plug 'posva/vim-vue'
 Plug 'neoclide/coc-vetur'
 Plug 'APZelos/blamer.nvim'
 Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
 Plug 'pangloss/vim-javascript'
 call plug#end()
 
 
 " Default Settings
 colorscheme dracula
-
-"" Required by vim-polyglot
-set nocompatible
 
 "" Enable line numbers
 set number
