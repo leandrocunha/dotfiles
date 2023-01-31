@@ -36,7 +36,52 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
+
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
+    filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' }, 
     flags = lsp_flags,
+    cmd = { 'typescript-language-server', '--stdio' }
+}
+
+require'lspconfig'.vuels.setup{
+	on_attach = on_attach,
+	filetypes = { 'vue'},
+	cmd = { 'vls'},
+	config = {
+		css = {},
+		emmet = {},
+		html = {
+			suggest = {}
+		},
+		javascript = {
+			format = {}
+		},
+		stylusSupremacy = {},
+		typescript = {
+			format = {}
+		},
+		vetur = {
+			completion = {
+				autoImport = false,
+				tagCasing = "kebab",
+				useScaffoldSnippets = false
+			},
+			format = {
+				defaultFormatter = {
+					js = "none",
+					ts = "none"
+				},
+				defaultFormatterOptions = {},
+				scriptInitialIndent = false,
+				styleInitialIndent = false
+			},
+			useWorkspaceDependencies = false,
+			validation = {
+				script = true,
+				style = true,
+				template = true
+			}
+		}
+	}
 }
