@@ -85,3 +85,7 @@ require'lspconfig'.vuels.setup{
 		}
 	}
 }
+
+require('lspconfig')['marksman'].setup{
+	on_attach = on_attach,
+}
