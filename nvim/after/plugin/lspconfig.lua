@@ -39,9 +39,7 @@ local lsp_flags = {
 
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
-    filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' }, 
-    flags = lsp_flags,
-    cmd = { 'typescript-language-server', '--stdio' }
+    flags = lsp_flags
 }
 
 require'lspconfig'.vuels.setup{
@@ -88,4 +86,5 @@ require'lspconfig'.vuels.setup{
 
 require('lspconfig')['marksman'].setup{
 	on_attach = on_attach,
+	flags = lsp_flags
 }
