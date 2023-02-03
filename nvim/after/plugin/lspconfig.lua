@@ -30,6 +30,11 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+  vim.cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
+
+  -- required to enable eslint fixes
+  client.server_capabilities.document_formatting = true
 end
 
 local lsp_flags = {
@@ -85,6 +90,11 @@ require'lspconfig'.vuels.setup{
 }
 
 require('lspconfig')['marksman'].setup{
+	on_attach = on_attach,
+	flags = lsp_flags
+}
+
+require('lspconfig')['eslint'].setup{
 	on_attach = on_attach,
 	flags = lsp_flags
 }
