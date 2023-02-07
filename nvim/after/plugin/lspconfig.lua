@@ -38,17 +38,20 @@ local on_attach = function(client, bufnr)
   client.server_capabilities.document_formatting = true
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities();
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
 
 require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags
+	capabilities = capabilities,
+	on_attach = on_attach,
+	flags = lsp_flags
 }
 
 require'lspconfig'.vuels.setup{
+	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { 'vue'},
 	cmd = { 'vls'},
@@ -91,11 +94,13 @@ require'lspconfig'.vuels.setup{
 }
 
 require('lspconfig')['marksman'].setup{
+	capabilities = capabilities,
 	on_attach = on_attach,
 	flags = lsp_flags
 }
 
 require('lspconfig')['eslint'].setup{
+	capabilities = capabilities,
 	on_attach = on_attach,
 	flags = lsp_flags
 }
