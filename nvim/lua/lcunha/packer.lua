@@ -38,4 +38,7 @@ return require('packer').startup(function(use)
   -- autopairs and autotag
   use 'wsssindwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
+
+  -- bufferse
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 end)
