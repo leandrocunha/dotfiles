@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  -- autopairs
+  -- autopairs and autotag
   use 'wsssindwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
 end)
