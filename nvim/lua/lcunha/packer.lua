@@ -16,13 +16,12 @@ return require('packer').startup(function(use)
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
+  -- lsp
   use 'neovim/nvim-lspconfig'
-
   use 'williamboman/mason.nvim'
-
   use 'williamboman/mason-lspconfig.nvim'
-
-  use { 'lewis6991/gitsigns.nvim', tag = 'release' }
+  use 'lewis6991/gitsigns.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- code completition
   use 'hrsh7th/cmp-nvim-lsp'
@@ -36,7 +35,7 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
 
   -- autopairs and autotag
-  use 'wsssindwp/nvim-autopairs'
+  use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
 
   -- bufferse
