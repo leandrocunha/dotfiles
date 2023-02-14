@@ -31,11 +31,13 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
-  -- enable eslint fix on save
-  vim.cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
+  -- disable built-in auto-formmat and give preference to use null-ls plugin
+  if client.name == 'tsserver' then
+	  client.server_capabilities.document_formatting = false
+  end
 
-  -- required to enable eslint fixes
-  client.server_capabilities.document_formatting = true
+  -- enable eslint fix on save
+  -- vim.cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities();
