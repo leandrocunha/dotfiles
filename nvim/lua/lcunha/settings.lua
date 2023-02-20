@@ -1,4 +1,8 @@
+local o = vim.o
 local opt = vim.opt
+
+-- globals
+o.swapfile = false
 
 opt.termguicolors = true
 opt.number = true

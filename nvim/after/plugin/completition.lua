@@ -75,11 +75,11 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "nvim_lua", max_item_count = 5 },
-		{ name = "nvim_lsp", max_item_count = 5 },
-		{ name = "luasnip", max_item_count = 5},
-		{ name = "buffer", max_item_count = 5 },
-		{ name = "path", max_item_count = 5 },
+		{ name = "nvim_lua", max_item_count = 12 },
+		{ name = "nvim_lsp", max_item_count = 12 },
+		{ name = "luasnip", max_item_count = 12},
+		{ name = "buffer", max_item_count = 12 },
+		{ name = "path", max_item_count = 12 },
 	},
 	window = {
 		documentation = {
