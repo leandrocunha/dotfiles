@@ -46,4 +46,7 @@ return require('packer').startup(function(use)
   -- identline
   use 'lukas-reineke/indent-blankline.nvim'
   use 'tpope/vim-sleuth'
+
+  -- relative numbers
+  use { "sitiom/nvim-numbertoggle" }
 end)
