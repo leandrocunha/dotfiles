@@ -8,6 +8,8 @@ if not snip_status_ok then
 	return
 end
 
+local api = vim.api
+
 --   פּ ﯟ   some other good icons
 local kind_icons = {
 	Text = "",
@@ -37,6 +39,11 @@ local kind_icons = {
 	TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+
+-- custom popup style (background/borders) to match the theme colors
+api.nvim_set_hl(0, "DraculaBackground", { bg = "#282a36" })
+api.nvim_set_hl(0, "DraculaCurrentLine", { fg = "#44475a" })
+api.nvim_set_hl(0, "DraculaComment", { fg = "#6272a4"})
 
 cmp.setup({
 	snippet = {
@@ -82,8 +89,15 @@ cmp.setup({
 		{ name = "path", max_item_count = 12 },
 	},
 	window = {
+		completion = {
+			border = "single",
+			winhighlight = "Normal:DraculaBackground,FloatBorder:DraculaCurrentLine",
+			zindex = 1
+		},
 		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = "single",
+			winhighlight = "Normal:DraculaBackground,FloatBorder:DraculaComment",
+			zindex = 1
 		},
 	},
 })
