@@ -64,4 +64,8 @@ return require('packer').startup(function(use)
 
   -- relative numbers
   use { "sitiom/nvim-numbertoggle" }
+
+  -- comment
+  use 'numToStr/Comment.nvim'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 end)
