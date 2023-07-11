@@ -74,4 +74,14 @@ return require('packer').startup(function(use)
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
+
+  -- vs-tasks
+use {
+  'EthanJWright/vs-tasks.nvim',
+  requires = {
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim'
+  }
+}
 end)
