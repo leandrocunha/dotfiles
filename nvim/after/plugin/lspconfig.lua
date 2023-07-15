@@ -70,9 +70,10 @@ require("lspconfig")["tsserver"].setup({
   flags = lsp_flags,
 })
 
-require("lspconfig").vuels.setup({
+require("lspconfig").volar.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 })
 
 require("lspconfig")["marksman"].setup({
