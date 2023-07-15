@@ -97,4 +97,10 @@ require("lspconfig")["stylelint_lsp"].setup({
       autoFixOnFormat = true,
     },
   },
+
+  require("lspconfig").terraformls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = lsp_flags,
+  }),
 })

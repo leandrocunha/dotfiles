@@ -85,4 +85,7 @@ return require("packer").startup(function(use)
       "nvim-telescope/telescope.nvim",
     },
   })
+
+  -- vim-terraform
+  use("hashivim/vim-terraform")
 end)
