@@ -2,8 +2,8 @@ local o = vim.o
 local opt = vim.opt
 
 -- globals
+o.cursorline = true
 o.swapfile = false
-
 opt.termguicolors = true
 opt.number = true
 opt.relativenumber = true
@@ -13,9 +13,12 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 
 -- Override line number colors to highlight the current
-vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#3a3b4e', bold=false })
-vim.api.nvim_set_hl(0, 'LineNr', { bold=true })
-vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#3a3b4e', bold=false })
+local dracula = "#3a3b4e"
+
+-- catppuccin macchiato
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#939ab7", bold = false })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "#ed8796", fg = "#ed8796", bold = true })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#939ab7", bold = false })
 
 -- Terraformls minimal configuration
 vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
