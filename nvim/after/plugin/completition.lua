@@ -114,6 +114,8 @@ cmp.setup({
       border = "single",
       winhighlight = "Normal:DraculaBackground,FloatBorder:DraculaCurrentLine",
       zindex = 1,
+      col_offset = -3,
+      side_padding = 0,
     },
     documentation = {
       border = "single",
