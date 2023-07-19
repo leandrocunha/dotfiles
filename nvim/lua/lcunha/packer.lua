@@ -88,4 +88,13 @@ return require("packer").startup(function(use)
 
   -- vim-terraform
   use("hashivim/vim-terraform")
+
+  -- Toggleterm
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = "*",
+    config = function()
+      require("toggleterm").setup()
+    end,
+  })
 end)
