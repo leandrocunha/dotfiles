@@ -77,4 +77,7 @@ return require("packer").startup(function(use)
 
   -- Toggleterm
   use({ "akinsho/toggleterm.nvim", tag = "*" })
+
+  -- Git-Blame-Line
+  use("kessejones/git-blame-line.nvim")
 end)
