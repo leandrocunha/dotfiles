@@ -103,5 +103,13 @@ require("lspconfig")["stylelint_lsp"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
+    filetypes = { "terraform", "tf" },
+  }),
+
+  require("lspconfig").tflint.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = { "terraform", "tf" },
   }),
 })

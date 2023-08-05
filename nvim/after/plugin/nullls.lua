@@ -13,6 +13,7 @@ null_ls.setup({
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.diagnostics.stylelint,
+    null_ls.builtins.diagnostics.terraform_validate,
     null_ls.builtins.completion.spell,
     null_ls.builtins.code_actions.gitsigns,
   },
