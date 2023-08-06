@@ -8,3 +8,6 @@ vim.keymap.set("n", "<leader>ta", ":lua require'telescope'.extensions.vstask.tas
 vim.keymap.set("n", "<leader>ti", ":lua require'telescope'.extensions.vstask.inputs()<CR>")
 vim.keymap.set("n", "<leader>th", ":lua require'telescope'.extensions.vstask.history()<CR>")
 vim.keymap.set("n", "<leader>tl", ":lua require'telescope'.extensions.vstask.launch()<CR>")
+
+-- lazygit
+vim.keymap.set("n", "<leader>g", ":FloatermNew lazygit<CR>")

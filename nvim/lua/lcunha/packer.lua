@@ -75,8 +75,9 @@ return require("packer").startup(function(use)
   -- vim-terraform
   use("hashivim/vim-terraform")
 
-  -- Toggleterm
+  -- Terminals
   use({ "akinsho/toggleterm.nvim", tag = "*" })
+  use("voldikss/vim-floaterm")
 
   -- Git-Blame-Line
   use("kessejones/git-blame-line.nvim")
