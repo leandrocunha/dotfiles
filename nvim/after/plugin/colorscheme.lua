@@ -3,4 +3,4 @@ function colorScheme(theme)
   vim.cmd.colorscheme(theme)
 end
 
-colorScheme("catppuccin-macchiato")
+colorScheme()
