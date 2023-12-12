@@ -14,8 +14,9 @@ return require("packer").startup(function(use)
   })
 
   -- colorscheme
-  use({ "dracula/vim", as = "dracula" })
+  -- use({ "dracula/vim", as = "dracula" })
   use({ "catppuccin/nvim", as = "catppuccin" })
+  use("Mofiqul/dracula.nvim")
 
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 

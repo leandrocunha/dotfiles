@@ -73,7 +73,7 @@ require("lspconfig")["tsserver"].setup({
 require("lspconfig").volar.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+  filetypes = { "vue" },
 })
 
 require("lspconfig")["marksman"].setup({
@@ -86,12 +86,14 @@ require("lspconfig")["eslint"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
+  filetypes = { "vue" }
 })
 
 require("lspconfig")["stylelint_lsp"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
+  filetypes = { "css", "scss" },
   settings = {
     stylelintplus = {
       autoFixOnSave = true,

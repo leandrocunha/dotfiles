@@ -8,5 +8,8 @@ require('lualine').setup({
     lualine_c = {
       'branch', 'diff', 'diagnostics'
     }
+  },
+  options = {
+    section_separators = ""
   }
 })
