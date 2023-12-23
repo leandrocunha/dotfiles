@@ -58,7 +58,9 @@ local on_attach = function(client, bufnr)
   -- vim.cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
 end
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion = require('cmp_nvim_lsp').default_capabilities().textDocument.completion
+
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
@@ -114,4 +116,10 @@ require("lspconfig")["stylelint_lsp"].setup({
     flags = lsp_flags,
     filetypes = { "terraform", "tf" },
   }),
+})
+
+require("lspconfig").cssls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags
 })
