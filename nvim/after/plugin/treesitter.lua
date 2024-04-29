@@ -24,9 +24,4 @@ require("nvim-treesitter.configs").setup({
   autotag = {
     enable = true,
   },
-
-  -- comments
-  context_commentstring = {
-    enable = true,
-  },
 })
