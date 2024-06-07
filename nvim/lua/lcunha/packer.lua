@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
   use("windwp/nvim-ts-autotag")
 
   -- buffers
-  use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+  use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 
   -- identline
   use("lukas-reineke/indent-blankline.nvim")
