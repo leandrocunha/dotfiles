@@ -15,7 +15,7 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 --   virtual_text = false,
 -- })
 vim.diagnostic.config({
-  focus = true
+  focus = true,
 })
 
 -- Diagnostic symbols in the sign column (gutter)
@@ -62,7 +62,7 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion = require('cmp_nvim_lsp').default_capabilities().textDocument.completion
+capabilities.textDocument.completion = require("cmp_nvim_lsp").default_capabilities().textDocument.completion
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
@@ -87,11 +87,10 @@ require("lspconfig")["marksman"].setup({
   flags = lsp_flags,
 })
 
-require("lspconfig")["eslint"].setup({
+require("lspconfig").eslint.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
-  filetypes = { "vue" }
 })
 
 require("lspconfig")["stylelint_lsp"].setup({
@@ -124,11 +123,11 @@ require("lspconfig")["stylelint_lsp"].setup({
 require("lspconfig").cssls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  flags = lsp_flags
+  flags = lsp_flags,
 })
 
 require("lspconfig").lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  flags = lsp_flags
+  flags = lsp_flags,
 })
