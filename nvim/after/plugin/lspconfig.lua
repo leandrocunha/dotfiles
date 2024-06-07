@@ -14,6 +14,9 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 -- vim.diagnostic.config({
 --   virtual_text = false,
 -- })
+vim.diagnostic.config({
+  focus = true
+})
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = "", Hint = "󰌶 ", Info = " " }
