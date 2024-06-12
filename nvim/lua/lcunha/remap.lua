@@ -3,6 +3,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<C-h>", vim.cmd.bprevious)
 vim.keymap.set("n", "<C-l>", vim.cmd.bnext)
 vim.keymap.set("n", "<C-w>", vim.cmd.bdelete)
+vim.keymap.set("n", "<C-b>", vim.cmd.Explorer)
 
 -- vs-tasks
 vim.keymap.set("n", "<leader>ta", ":lua require'telescope'.extensions.vstask.tasks()<CR>")
