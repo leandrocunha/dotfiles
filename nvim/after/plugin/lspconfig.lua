@@ -14,7 +14,20 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 -- vim.diagnostic.config({
 --   virtual_text = false,
 -- })
+vim.api.nvim_command("highlight CustomFloatBorder guifg=#A9D0E6")
 vim.diagnostic.config({
+  float = {
+    border = {
+      { "┌", "CustomFloatBorder" },
+      { "─", "CustomFloatBorder" },
+      { "┐", "CustomFloatBorder" },
+      { "│", "CustomFloatBorder" },
+      { "┘", "CustomFloatBorder" },
+      { "─", "CustomFloatBorder" },
+      { "└", "CustomFloatBorder" },
+      { "│", "CustomFloatBorder" },
+    },
+  },
   focus = true,
 })
 
