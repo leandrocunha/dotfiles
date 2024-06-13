@@ -6,37 +6,33 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
--- Show line diagnostics automatically in hover window
--- vim.o.updatetime = 250
--- vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
-
--- Disable inline vim diagnostics, using open_float popup
--- vim.diagnostic.config({
---   virtual_text = false,
--- })
+-- Create a new highlight color group
 vim.api.nvim_command("highlight CustomFloatBorder guifg=#A9D0E6")
+
+-- Set the custom border characters
+local border_chars = {
+  { "┌", "CustomFloatBorder" },
+  { "─", "CustomFloatBorder" },
+  { "┐", "CustomFloatBorder" },
+  { "│", "CustomFloatBorder" },
+  { "┘", "CustomFloatBorder" },
+  { "─", "CustomFloatBorder" },
+  { "└", "CustomFloatBorder" },
+  { "│", "CustomFloatBorder" },
+}
+
+-- Set the custom border color to the diagnostic popup window
 vim.diagnostic.config({
   float = {
-    border = {
-      { "┌", "CustomFloatBorder" },
-      { "─", "CustomFloatBorder" },
-      { "┐", "CustomFloatBorder" },
-      { "│", "CustomFloatBorder" },
-      { "┘", "CustomFloatBorder" },
-      { "─", "CustomFloatBorder" },
-      { "└", "CustomFloatBorder" },
-      { "│", "CustomFloatBorder" },
-    },
+    border = border_chars,
   },
   focus = true,
 })
 
--- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = "", Hint = "󰌶 ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+-- Add the border on hover popup window
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border_chars }),
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -143,4 +139,5 @@ require("lspconfig").lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
+  handlers = handlers,
 })
