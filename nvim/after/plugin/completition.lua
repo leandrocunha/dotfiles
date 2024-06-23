@@ -10,36 +10,34 @@ end
 
 local api = vim.api
 
--- --   פּ ﯟ   some other good icons
 local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
+  Text = "󰉿",
+  Method = "󰆧",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "󰜢",
+  Variable = "󰀫",
+  Class = "󰠱",
   Interface = "",
   Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
+  Property = "󰜢",
+  Unit = "󰑭",
+  Value = "󰎠",
   Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "󰈇",
+  Folder = "󰉋",
   EnumMember = "",
-  Constant = "",
-  Struct = "",
+  Constant = "󰏿",
+  Struct = "󰙅",
   Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Operator = "󰆕",
+  TypeParameter = "",
 }
--- -- find more here: https://www.nerdfonts.com/cheat-sheet
---
+
 -- -- custom popup style (background/borders) to match the theme colors
 api.nvim_set_hl(0, "DraculaBackground", { bg = "#282a36" })
 api.nvim_set_hl(0, "DraculaCurrentLine", { fg = "#44475a" })
@@ -80,33 +78,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lua", max_item_count = 12 },
     { name = "luasnip", max_item_count = 12 },
-    { name = "nvim_lsp" },
-    -- {
-    --   name = "nvim_lsp",
-    --   max_item_count = 12,
-    --   entry_filter = function(entry, context)
-    --     local kind = entry:get_kind()
-    --     local line = context.cursor_line
-    --     local col = context.cursor.col
-    --     local char_before_cursor = string.sub(line, col - 1, col - 1)
-    --
-    --     if char_before_cursor == "." then
-    --       if kind == 2 or kind == 5 then
-    --         return true
-    --       else
-    --         return false
-    --       end
-    --     elseif string.match(line, "^%s*%w*$") then
-    --       if kind == 2 or kind == 5 then
-    --         return true
-    --       else
-    --         return false
-    --       end
-    --     end
-    --
-    --     return true
-    --   end,
-    -- },
+    { name = "nvim_lsp", max_item_count = 12 },
     { name = "buffer", max_item_count = 12 },
     { name = "path", max_item_count = 12 },
   }),
@@ -126,9 +98,3 @@ cmp.setup({
   },
 })
 
--- -- Set up lspconfig.
--- local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require("lspconfig")["eslint"].setup({
---   capabilities = capabilities,
--- })
