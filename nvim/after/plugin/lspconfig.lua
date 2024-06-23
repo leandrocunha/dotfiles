@@ -32,6 +32,7 @@ vim.diagnostic.config({
 -- Add the border on hover popup window
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border_chars }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border_chars }),
 }
 
 -- Diagnostic symbols in the sign column (gutter)''
@@ -88,6 +89,7 @@ require("lspconfig")["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
+  handlers = handlers
 })
 
 require("lspconfig").volar.setup({
@@ -106,6 +108,7 @@ require("lspconfig").eslint.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
+  handlers = handlers
 })
 
 require("lspconfig")["stylelint_lsp"].setup({
