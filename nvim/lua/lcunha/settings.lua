@@ -11,6 +11,8 @@ opt.scrolloff = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
+opt.spell = true
+opt.spelllang = "en_gb,pt_br"
 
 -- Override line number colors to highlight the current
 local dracula = "#3a3b4e"
