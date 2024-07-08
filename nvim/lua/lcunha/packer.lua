@@ -27,7 +27,7 @@ return require("packer").startup(function(use)
   use("lewis6991/gitsigns.nvim")
   use({
     "nvimtools/none-ls.nvim",
-    requires = "nvim-lua/plenary.nvim"
+    requires = "nvim-lua/plenary.nvim",
   })
 
   -- code completition
@@ -44,7 +44,6 @@ return require("packer").startup(function(use)
 
   -- autopairs and autotag
   use("windwp/nvim-autopairs")
-  use("windwp/nvim-ts-autotag")
 
   -- buffers
   use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
