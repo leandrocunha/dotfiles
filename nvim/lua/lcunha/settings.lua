@@ -18,6 +18,7 @@ opt.guicursor = {
   "i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
   "r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100",
 }
+opt.splitright = true
 
 -- Override line number colors to highlight the current
 local dracula = "#3a3b4e"
