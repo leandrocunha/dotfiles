@@ -55,6 +55,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", bufopts)
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -89,7 +90,7 @@ require("lspconfig")["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
-  handlers = handlers
+  handlers = handlers,
 })
 
 require("lspconfig").volar.setup({
@@ -108,7 +109,7 @@ require("lspconfig").eslint.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
-  handlers = handlers
+  handlers = handlers,
 })
 
 require("lspconfig")["stylelint_lsp"].setup({
