@@ -19,11 +19,25 @@ local function filenameFirst(_, path)
   return string.format("%s\t\t%s", tail, parent)
 end
 
+local function lspReferenceResults(_, path, line)
+  local tail = vim.fs.basename(path)
+  local parent = vim.fs.dirname(path)
+  local relative_path = vim.fn.fnamemodify(parent, ":~:.")
+
+  if parent == "." then
+    return string.format("%s => line:%d", tail, line or 0)
+  end
+
+  return string.format("%s => .../%s => line:%d", tail, relative_path, line or 0)
+end
+
 telescope.setup({
   defaults = {
     layout_config = {
+      height = 0.70,
       prompt_position = "top",
     },
+    path_display = filenameFirst,
     prompt_prefix = "󰧚 ",
     sorting_strategy = "ascending",
     vim_gre,
@@ -31,10 +45,10 @@ telescope.setup({
   pickers = {
     find_files = {
       find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
-      layout_config = {
-        height = 0.70,
-      },
-      path_display = filenameFirst,
+    },
+    lsp_references = {
+      path_display = lspReferenceResults,
+      show_line = false,
     },
     buffers = {
       show_all_buffers = true,
