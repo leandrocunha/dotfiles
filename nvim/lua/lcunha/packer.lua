@@ -11,9 +11,9 @@ return require("packer").startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     tag = "0.1.x",
-    requires = { { "nvim-lua/plenary.nvim" } },
+    requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" },
   })
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- colorscheme
   -- use({ "dracula/vim", as = "dracula" })
@@ -86,4 +86,7 @@ return require("packer").startup(function(use)
 
   -- Git-Blame-Line
   use("kessejones/git-blame-line.nvim")
+
+  -- Workspaces
+  use("natecraddock/workspaces.nvim")
 end)

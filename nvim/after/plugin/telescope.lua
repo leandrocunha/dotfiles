@@ -70,7 +70,9 @@ telescope.setup({
   },
 })
 
+telescope.load_extension("live_grep_args")
+
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>ps", telescope.extensions.live_grep_args.live_grep_args, {})
 vim.keymap.set("n", "<C-p>", builtin.git_files, {})

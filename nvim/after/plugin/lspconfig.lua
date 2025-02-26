@@ -57,11 +57,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
   vim.keymap.set("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", bufopts)
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set("n", "<space>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
   vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
@@ -86,20 +81,7 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-require("lspconfig")["tsserver"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-  handlers = handlers,
-})
-
-require("lspconfig").volar.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = { "vue" },
-})
-
-require("lspconfig")["marksman"].setup({
+require("lspconfig").cssls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
@@ -112,34 +94,7 @@ require("lspconfig").eslint.setup({
   handlers = handlers,
 })
 
-require("lspconfig")["stylelint_lsp"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-  filetypes = { "css", "scss" },
-  settings = {
-    stylelintplus = {
-      autoFixOnSave = true,
-      autoFixOnFormat = true,
-    },
-  },
-
-  require("lspconfig").terraformls.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    filetypes = { "terraform", "tf" },
-  }),
-
-  require("lspconfig").tflint.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    filetypes = { "terraform", "tf" },
-  }),
-})
-
-require("lspconfig").cssls.setup({
+require("lspconfig").jsonls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
@@ -150,4 +105,62 @@ require("lspconfig").lua_ls.setup({
   on_attach = on_attach,
   flags = lsp_flags,
   handlers = handlers,
+})
+
+require("lspconfig").marksman.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+})
+
+require("lspconfig").prismals.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+})
+
+require("lspconfig").stylelint_lsp.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "css", "scss" },
+  settings = {
+    stylelintplus = {
+      autoFixOnSave = true,
+      autoFixOnFormat = true,
+    },
+  },
+})
+
+require("lspconfig").tailwindcss.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+})
+
+require("lspconfig").terraformls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "terraform", "tf" },
+})
+
+require("lspconfig").tflint.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "terraform", "tf" },
+})
+
+require("lspconfig").tsserver.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  handlers = handlers,
+})
+
+require("lspconfig").volar.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "vue" },
 })
